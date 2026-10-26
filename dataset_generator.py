@@ -9,7 +9,7 @@ metadata dalam format CSV dan JSON.
 
 Penggunaan:
     python dataset_generator.py --count 50 --seed 42
-    python dataset_generator.py --count 100 --seed 42 --output dataset
+    python dataset_generator.py --count 100 --seed 42 --output data
 
 Catatan:
     Program ini hanya membuat dataset lokal.
@@ -268,21 +268,24 @@ def buat_struktur_direktori(output_dir: Path) -> Path:
     Membuat struktur direktori output yang diperlukan.
 
     Struktur yang dibuat:
-        <output_dir>/
-        +-images/
-        +-metadata.csv  (dibuat kemudian)
-        +-metadata.json (dibuat kemudian)
+        <output_dir>/           (default: data/)
+        +-raw_images/           <-- gambar sintetis disimpan di sini
+        +-metadata.csv          (dibuat kemudian)
+        +-metadata.json         (dibuat kemudian)
+
+    Nama direktori gambar (raw_images) disesuaikan dengan struktur
+    proyek dan aturan .gitignore yang sudah ada.
 
     Args:
         output_dir: Direktori root output dataset.
 
     Returns:
-        Path direktori images/.
+        Path direktori raw_images/.
 
     Raises:
         OSError: Jika direktori gagal dibuat.
     """
-    dir_images = output_dir / "images"
+    dir_images = output_dir / "raw_images"
     dir_images.mkdir(parents=True, exist_ok=True)
     logger.info(f"Direktori output: {output_dir.resolve()}")
     return dir_images
@@ -345,8 +348,9 @@ def generate_dataset(
             # Hitung estimasi waktu pemrosesan (nilai sintetis, bukan aktual)
             estimasi_ms = hitung_estimasi_waktu(width, height)
 
-            # Path relatif menggunakan forward slash agar kompatibel lintas OS
-            path_relatif = f"images/{nama_file}"
+            # Path relatif menggunakan forward slash agar kompatibel lintas OS.
+            # Disesuaikan dengan struktur proyek: data/raw_images/<nama_file>
+            path_relatif = f"raw_images/{nama_file}"
 
             metadata = {
                 "task_id": f"TASK-{i:03d}",
@@ -556,9 +560,9 @@ def parse_argumen() -> argparse.Namespace:
     parser.add_argument(
         "--output",
         type=str,
-        default="dataset",
+        default="data",
         metavar="DIR",
-        help="Direktori root untuk menyimpan dataset (default: dataset)",
+        help="Direktori root untuk menyimpan dataset (default: data)",
     )
 
     return parser.parse_args()

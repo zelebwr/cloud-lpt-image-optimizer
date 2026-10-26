@@ -1,10 +1,26 @@
 # requirements.txt
-# Dependensi untuk dataset_generator.py
-# Proyek: Cloud LPT Image Optimizer
+# Dependensi Python untuk Cloud LPT Image Optimizer
+# Proyek: Penjadwalan Task Cloud Computing (LPT vs Round Robin)
 #
 # Instalasi:
 #   pip install -r requirements.txt
 
-# Pillow: library pemrosesan gambar untuk membuat dan menyimpan gambar sintetis JPEG.
-# Versi >=10.0.0 dipilih karena mendukung Python 3.11 dan memiliki perbaikan keamanan penting.
+# ── Anggota 4: dataset_generator.py ──────────────────────────────────────────
+# Pillow: membuat dan memvalidasi gambar sintetis JPEG.
 Pillow>=10.0.0
+
+# ── Anggota 4: benchmark_runner.py ───────────────────────────────────────────
+# requests: HTTP client untuk memanggil Master Node (/schedule)
+#           dan VM Worker (/execute_task) melalui REST API.
+requests>=2.31.0
+
+# ── Shared: schema.py ────────────────────────────────────────────────────────
+# pydantic: validasi model data bersama (ImageTask, WorkerNode, dll.)
+#           Digunakan oleh semua komponen sistem.
+pydantic>=2.0.0
+
+# ── Anggota 2 & 3: scheduler_engine.py, worker_service.py ───────────────────
+# fastapi: framework REST API untuk Master Node dan Worker Service.
+# uvicorn: ASGI server untuk menjalankan FastAPI.
+fastapi>=0.110.0
+uvicorn>=0.29.0
