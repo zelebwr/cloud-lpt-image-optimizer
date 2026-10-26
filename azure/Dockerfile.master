@@ -1,0 +1,17 @@
+FROM python:3.11-slim
+
+WORKDIR /app
+
+# Install pustaka Python yang dibutuhkan Master Node
+RUN pip install --no-cache-dir fastapi uvicorn pydantic requests numpy
+
+# Salin berkas skema data, konfigurasi IP, dan seluruh modul logika scheduler
+COPY schema.py .
+COPY env_config.py .
+COPY scheduler_engine.py .
+COPY lpt_logic.py .
+COPY rr_logic.py .
+
+EXPOSE 8000
+
+CMD ["uvicorn", "scheduler_engine:app", "--host", "0.0.0.0", "--port", "8000"]
