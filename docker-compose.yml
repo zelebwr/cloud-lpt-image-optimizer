@@ -1,0 +1,86 @@
+version: '3.8'
+
+networks:
+  dc_local_net:
+    driver: bridge
+  host_a_net:
+    driver: bridge
+  host_b_net:
+    driver: bridge
+
+services:
+  master-dispatcher:
+    build:
+      context: .
+      dockerfile: Dockerfile.master
+    container_name: master-dispatcher
+    ports:
+      - "8000:8000"
+    networks:
+      - dc_local_net
+      - host_a_net
+      - host_b_net
+
+  vm-worker-1:
+    build:
+      context: .
+      dockerfile: Dockerfile.worker
+    container_name: vm-worker-1
+    environment:
+      - VM_ID=vm-1
+      - CAPACITY_MULTIPLIER=2.0
+    deploy:
+      resources:
+        limits:
+          cpus: '2.0'
+          memory: 4G
+    networks:
+      - host_a_net
+
+  vm-worker-2:
+    build:
+      context: .
+      dockerfile: Dockerfile.worker
+    container_name: vm-worker-2
+    environment:
+      - VM_ID=vm-2
+      - CAPACITY_MULTIPLIER=1.0
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 2G
+    networks:
+      - host_a_net
+
+  vm-worker-3:
+    build:
+      context: .
+      dockerfile: Dockerfile.worker
+    container_name: vm-worker-3
+    environment:
+      - VM_ID=vm-3
+      - CAPACITY_MULTIPLIER=1.5
+    deploy:
+      resources:
+        limits:
+          cpus: '2.0'
+          memory: 4G
+    networks:
+      - host_b_net
+
+  vm-worker-4:
+    build:
+      context: .
+      dockerfile: Dockerfile.worker
+    container_name: vm-worker-4
+    environment:
+      - VM_ID=vm-4
+      - CAPACITY_MULTIPLIER=0.8
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 2G
+    networks:
+      - host_b_net
