@@ -1,0 +1,10 @@
+# requirements.txt
+# Dependensi untuk dataset_generator.py
+# Proyek: Cloud LPT Image Optimizer
+#
+# Instalasi:
+#   pip install -r requirements.txt
+
+# Pillow: library pemrosesan gambar untuk membuat dan menyimpan gambar sintetis JPEG.
+# Versi >=10.0.0 dipilih karena mendukung Python 3.11 dan memiliki perbaikan keamanan penting.
+Pillow>=10.0.0

@@ -6,3 +6,6 @@ data/raw_images/*
 !data/raw_images/.gitkeep
 results/grafik/*
 !results/grafik/.gitkeep
+
+# Dataset hasil generate — dapat dibuat ulang dengan dataset_generator.py
+dataset/
