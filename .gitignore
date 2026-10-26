@@ -9,3 +9,5 @@ results/grafik/*
 
 # Dataset hasil generate — dapat dibuat ulang dengan dataset_generator.py
 dataset/
+venv/
+results/mock/
