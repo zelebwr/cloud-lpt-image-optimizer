@@ -28,7 +28,9 @@ def main():
     results_dir = Path(a.results)
 
     df = pd.read_csv(results_dir / "metrics_summary.csv")
-    table = df[list(COLS)].rename(columns=COLS).round(4)
+    table = df[list(COLS)].copy()
+    table["total_cost"] = table["total_cost"].map(lambda x: f"{x:.8f}")
+    table = table.rename(columns=COLS).round(4)
     lines = ["Ringkasan Benchmark LPT vs Round Robin", "", table.to_string(index=False), ""]
 
     lpt = df[df["algorithm_name"] == "LPT"].iloc[0]
@@ -36,6 +38,7 @@ def main():
     lines.append(f"Makespan LPT lebih rendah {gain(rr['makespan_ms'], lpt['makespan_ms']):.2f}% dari Round Robin")
     lines.append(f"DI LPT lebih rendah {gain(rr['degree_of_imbalance'], lpt['degree_of_imbalance']):.2f}% dari Round Robin")
     lines.append(f"Throughput LPT {lpt['throughput_tasks_per_sec']:.2f} vs RR {rr['throughput_tasks_per_sec']:.2f} task/s")
+    lines.append(f"Total Cost LPT {lpt['total_cost']:.8f} vs RR {rr['total_cost']:.8f}")
     lines.append(f"T_sched LPT {lpt['scheduling_duration_ms']:.3f} ms vs RR {rr['scheduling_duration_ms']:.3f} ms")
 
     report = "\n".join(lines)

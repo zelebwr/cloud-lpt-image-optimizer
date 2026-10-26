@@ -9,7 +9,9 @@ Endpoint:
 
 Konfigurasi lewat environment variable (diatur di docker-compose.yml):
     VM_ID                 default "vm-unknown"
-    CAPACITY_MULTIPLIER   default 1.0 (informasi saja)
+    CAPACITY_MULTIPLIER   default 1.0 (dipakai untuk simulasi kecepatan VM)
+    SIMULATE_SPEED        default "1" - aktifkan simulasi kecepatan VM
+    REFERENCE_MULTIPLIER  default 2.0 - multiplier tercepat (kecepatan asli)
     DATA_DIR              default "/data" - root volume data di dalam container
 
 Menjalankan lokal:
@@ -28,6 +30,8 @@ from image_processor import ImageProcessingError, process_image
 VM_ID = os.getenv("VM_ID", "vm-unknown")
 CAPACITY_MULTIPLIER = float(os.getenv("CAPACITY_MULTIPLIER", "1.0"))
 DATA_DIR = Path(os.getenv("DATA_DIR", "/data"))
+SIMULATE_SPEED = os.getenv("SIMULATE_SPEED", "1") == "1"
+REFERENCE_MULTIPLIER = float(os.getenv("REFERENCE_MULTIPLIER", "2.0"))
 
 app = FastAPI(title=f"Image Processing Worker Service ({VM_ID})")
 _started_at = time.time()
@@ -97,12 +101,21 @@ def execute_task(req: ExecuteTaskRequest):
     except Exception as e:  # noqa: BLE001
         raise HTTPException(status_code=500, detail=f"Gagal memproses gambar: {e}")
 
+    # Simulasi VM heterogen: worker dengan multiplier lebih kecil ditahan
+    # sebanding, karena container Docker aslinya berkecepatan sama.
+    duration_ms = result.actual_duration_ms
+    if SIMULATE_SPEED and CAPACITY_MULTIPLIER > 0:
+        target_ms = duration_ms * (REFERENCE_MULTIPLIER / CAPACITY_MULTIPLIER)
+        if target_ms > duration_ms:
+            time.sleep((target_ms - duration_ms) / 1000.0)
+        duration_ms = target_ms
+
     _tasks_done += 1
     return {
         "status": "SUCCESS",
         "task_id": req.task_id,
         "vm_id": VM_ID,
-        "actual_duration_ms": result.actual_duration_ms,
+        "actual_duration_ms": duration_ms,
         # kembalikan path ASLI dari request agar validasi di host menemukan filenya
         "output_file_path": req.output_file_path,
         "original_size": list(result.original_size),

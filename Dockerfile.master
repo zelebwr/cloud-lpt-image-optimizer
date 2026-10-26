@@ -6,6 +6,8 @@ RUN pip install --no-cache-dir fastapi uvicorn pydantic requests numpy
 
 COPY schema.py .
 COPY env_config.py .
+COPY lpt_logic.py .
+COPY rr_logic.py .
 COPY scheduler_engine.py .
 
 EXPOSE 8000

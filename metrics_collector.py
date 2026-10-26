@@ -4,13 +4,16 @@ from typing import Dict, List
 
 import pandas as pd
 
+from env_config import WORKER_NODES
 from schema import BenchmarkMetrics, WorkerNode
 
+# Spesifikasi VM dan tarif diambil dari env_config.py (Peran 1) agar satu sumber.
 WORKERS = {
-    "vm-worker-1": {"capacity_multiplier": 2.0, "total_cost_per_sec": 0.004},
-    "vm-worker-2": {"capacity_multiplier": 1.0, "total_cost_per_sec": 0.002},
-    "vm-worker-3": {"capacity_multiplier": 1.5, "total_cost_per_sec": 0.003},
-    "vm-worker-4": {"capacity_multiplier": 0.8, "total_cost_per_sec": 0.0016},
+    w["vm_id"]: {
+        "capacity_multiplier": w["capacity_multiplier"],
+        "total_cost_per_sec": w["total_cost_per_sec"],
+    }
+    for w in WORKER_NODES
 }
 ALGOS = ["LPT", "RR"]
 
@@ -50,6 +53,7 @@ def metrics_from_ready_times(algo: str, rt: Dict[str, float], n_tasks: int, t_sc
         makespan_ms=cmax,
         degree_of_imbalance=di,
         avg_cpu_utilization_pct=util,
+        # RAM belum diukur di eksperimen ini (tidak ada data memori dari worker)
         avg_ram_utilization_pct=0.0,
         throughput_tasks_per_sec=tp,
         total_cost=cost,
@@ -99,4 +103,4 @@ if __name__ == "__main__":
     p = argparse.ArgumentParser()
     p.add_argument("--results", default="results")
     a = p.parse_args()
-    print(collect_all(Path(a.results)).round(4).to_string(index=False))
+    print(collect_all(Path(a.results)).round(8).to_string(index=False))
