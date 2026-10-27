@@ -1,0 +1,502 @@
+[
+  {
+    "task_id": "TASK-001",
+    "file_name": "image_001.jpg",
+    "file_path": "raw_images/image_001.jpg",
+    "width_px": 1480,
+    "height_px": 780,
+    "file_size_bytes": 878448,
+    "workload_category": "large",
+    "estimated_processing_time_ms": 115.44
+  },
+  {
+    "task_id": "TASK-002",
+    "file_name": "image_002.jpg",
+    "file_path": "raw_images/image_002.jpg",
+    "width_px": 697,
+    "height_px": 497,
+    "file_size_bytes": 265242,
+    "workload_category": "small",
+    "estimated_processing_time_ms": 34.6409
+  },
+  {
+    "task_id": "TASK-003",
+    "file_name": "image_003.jpg",
+    "file_path": "raw_images/image_003.jpg",
+    "width_px": 1455,
+    "height_px": 1070,
+    "file_size_bytes": 1180638,
+    "workload_category": "large",
+    "estimated_processing_time_ms": 155.685
+  },
+  {
+    "task_id": "TASK-004",
+    "file_name": "image_004.jpg",
+    "file_path": "raw_images/image_004.jpg",
+    "width_px": 647,
+    "height_px": 491,
+    "file_size_bytes": 243953,
+    "workload_category": "small",
+    "estimated_processing_time_ms": 31.7677
+  },
+  {
+    "task_id": "TASK-005",
+    "file_name": "image_005.jpg",
+    "file_path": "raw_images/image_005.jpg",
+    "width_px": 769,
+    "height_px": 557,
+    "file_size_bytes": 327678,
+    "workload_category": "small",
+    "estimated_processing_time_ms": 42.8333
+  },
+  {
+    "task_id": "TASK-006",
+    "file_name": "image_006.jpg",
+    "file_path": "raw_images/image_006.jpg",
+    "width_px": 1569,
+    "height_px": 1047,
+    "file_size_bytes": 1248628,
+    "workload_category": "large",
+    "estimated_processing_time_ms": 164.2743
+  },
+  {
+    "task_id": "TASK-007",
+    "file_name": "image_007.jpg",
+    "file_path": "raw_images/image_007.jpg",
+    "width_px": 754,
+    "height_px": 555,
+    "file_size_bytes": 321885,
+    "workload_category": "small",
+    "estimated_processing_time_ms": 41.847
+  },
+  {
+    "task_id": "TASK-008",
+    "file_name": "image_008.jpg",
+    "file_path": "raw_images/image_008.jpg",
+    "width_px": 680,
+    "height_px": 569,
+    "file_size_bytes": 295523,
+    "workload_category": "small",
+    "estimated_processing_time_ms": 38.692
+  },
+  {
+    "task_id": "TASK-009",
+    "file_name": "image_009.jpg",
+    "file_path": "raw_images/image_009.jpg",
+    "width_px": 1166,
+    "height_px": 619,
+    "file_size_bytes": 551022,
+    "workload_category": "medium",
+    "estimated_processing_time_ms": 72.1754
+  },
+  {
+    "task_id": "TASK-010",
+    "file_name": "image_010.jpg",
+    "file_path": "raw_images/image_010.jpg",
+    "width_px": 1076,
+    "height_px": 611,
+    "file_size_bytes": 504599,
+    "workload_category": "medium",
+    "estimated_processing_time_ms": 65.7436
+  },
+  {
+    "task_id": "TASK-011",
+    "file_name": "image_011.jpg",
+    "file_path": "raw_images/image_011.jpg",
+    "width_px": 731,
+    "height_px": 588,
+    "file_size_bytes": 329896,
+    "workload_category": "small",
+    "estimated_processing_time_ms": 42.9828
+  },
+  {
+    "task_id": "TASK-012",
+    "file_name": "image_012.jpg",
+    "file_path": "raw_images/image_012.jpg",
+    "width_px": 1636,
+    "height_px": 790,
+    "file_size_bytes": 984346,
+    "workload_category": "large",
+    "estimated_processing_time_ms": 129.244
+  },
+  {
+    "task_id": "TASK-013",
+    "file_name": "image_013.jpg",
+    "file_path": "raw_images/image_013.jpg",
+    "width_px": 1493,
+    "height_px": 961,
+    "file_size_bytes": 1092173,
+    "workload_category": "large",
+    "estimated_processing_time_ms": 143.4773
+  },
+  {
+    "task_id": "TASK-014",
+    "file_name": "image_014.jpg",
+    "file_path": "raw_images/image_014.jpg",
+    "width_px": 1666,
+    "height_px": 953,
+    "file_size_bytes": 1208446,
+    "workload_category": "large",
+    "estimated_processing_time_ms": 158.7698
+  },
+  {
+    "task_id": "TASK-015",
+    "file_name": "image_015.jpg",
+    "file_path": "raw_images/image_015.jpg",
+    "width_px": 1437,
+    "height_px": 791,
+    "file_size_bytes": 864528,
+    "workload_category": "large",
+    "estimated_processing_time_ms": 113.6667
+  },
+  {
+    "task_id": "TASK-016",
+    "file_name": "image_016.jpg",
+    "file_path": "raw_images/image_016.jpg",
+    "width_px": 1064,
+    "height_px": 709,
+    "file_size_bytes": 575592,
+    "workload_category": "medium",
+    "estimated_processing_time_ms": 75.4376
+  },
+  {
+    "task_id": "TASK-017",
+    "file_name": "image_017.jpg",
+    "file_path": "raw_images/image_017.jpg",
+    "width_px": 737,
+    "height_px": 515,
+    "file_size_bytes": 292322,
+    "workload_category": "small",
+    "estimated_processing_time_ms": 37.9555
+  },
+  {
+    "task_id": "TASK-018",
+    "file_name": "image_018.jpg",
+    "file_path": "raw_images/image_018.jpg",
+    "width_px": 1739,
+    "height_px": 851,
+    "file_size_bytes": 1129542,
+    "workload_category": "large",
+    "estimated_processing_time_ms": 147.9889
+  },
+  {
+    "task_id": "TASK-019",
+    "file_name": "image_019.jpg",
+    "file_path": "raw_images/image_019.jpg",
+    "width_px": 1131,
+    "height_px": 685,
+    "file_size_bytes": 591060,
+    "workload_category": "medium",
+    "estimated_processing_time_ms": 77.4735
+  },
+  {
+    "task_id": "TASK-020",
+    "file_name": "image_020.jpg",
+    "file_path": "raw_images/image_020.jpg",
+    "width_px": 1439,
+    "height_px": 1079,
+    "file_size_bytes": 1178143,
+    "workload_category": "large",
+    "estimated_processing_time_ms": 155.2681
+  },
+  {
+    "task_id": "TASK-021",
+    "file_name": "image_021.jpg",
+    "file_path": "raw_images/image_021.jpg",
+    "width_px": 1616,
+    "height_px": 851,
+    "file_size_bytes": 1047260,
+    "workload_category": "large",
+    "estimated_processing_time_ms": 137.5216
+  },
+  {
+    "task_id": "TASK-022",
+    "file_name": "image_022.jpg",
+    "file_path": "raw_images/image_022.jpg",
+    "width_px": 1162,
+    "height_px": 718,
+    "file_size_bytes": 635376,
+    "workload_category": "medium",
+    "estimated_processing_time_ms": 83.4316
+  },
+  {
+    "task_id": "TASK-023",
+    "file_name": "image_023.jpg",
+    "file_path": "raw_images/image_023.jpg",
+    "width_px": 1698,
+    "height_px": 796,
+    "file_size_bytes": 1030139,
+    "workload_category": "large",
+    "estimated_processing_time_ms": 135.1608
+  },
+  {
+    "task_id": "TASK-024",
+    "file_name": "image_024.jpg",
+    "file_path": "raw_images/image_024.jpg",
+    "width_px": 720,
+    "height_px": 531,
+    "file_size_bytes": 292704,
+    "workload_category": "small",
+    "estimated_processing_time_ms": 38.232
+  },
+  {
+    "task_id": "TASK-025",
+    "file_name": "image_025.jpg",
+    "file_path": "raw_images/image_025.jpg",
+    "width_px": 694,
+    "height_px": 596,
+    "file_size_bytes": 317087,
+    "workload_category": "small",
+    "estimated_processing_time_ms": 41.3624
+  },
+  {
+    "task_id": "TASK-026",
+    "file_name": "image_026.jpg",
+    "file_path": "raw_images/image_026.jpg",
+    "width_px": 767,
+    "height_px": 530,
+    "file_size_bytes": 310985,
+    "workload_category": "small",
+    "estimated_processing_time_ms": 40.651
+  },
+  {
+    "task_id": "TASK-027",
+    "file_name": "image_027.jpg",
+    "file_path": "raw_images/image_027.jpg",
+    "width_px": 707,
+    "height_px": 497,
+    "file_size_bytes": 269969,
+    "workload_category": "small",
+    "estimated_processing_time_ms": 35.1379
+  },
+  {
+    "task_id": "TASK-028",
+    "file_name": "image_028.jpg",
+    "file_path": "raw_images/image_028.jpg",
+    "width_px": 1917,
+    "height_px": 902,
+    "file_size_bytes": 1314162,
+    "workload_category": "large",
+    "estimated_processing_time_ms": 172.9134
+  },
+  {
+    "task_id": "TASK-029",
+    "file_name": "image_029.jpg",
+    "file_path": "raw_images/image_029.jpg",
+    "width_px": 1774,
+    "height_px": 953,
+    "file_size_bytes": 1284279,
+    "workload_category": "large",
+    "estimated_processing_time_ms": 169.0622
+  },
+  {
+    "task_id": "TASK-030",
+    "file_name": "image_030.jpg",
+    "file_path": "raw_images/image_030.jpg",
+    "width_px": 770,
+    "height_px": 543,
+    "file_size_bytes": 319419,
+    "workload_category": "small",
+    "estimated_processing_time_ms": 41.811
+  },
+  {
+    "task_id": "TASK-031",
+    "file_name": "image_031.jpg",
+    "file_path": "raw_images/image_031.jpg",
+    "width_px": 668,
+    "height_px": 499,
+    "file_size_bytes": 256859,
+    "workload_category": "small",
+    "estimated_processing_time_ms": 33.3332
+  },
+  {
+    "task_id": "TASK-032",
+    "file_name": "image_032.jpg",
+    "file_path": "raw_images/image_032.jpg",
+    "width_px": 1798,
+    "height_px": 1073,
+    "file_size_bytes": 1466311,
+    "workload_category": "large",
+    "estimated_processing_time_ms": 192.9254
+  },
+  {
+    "task_id": "TASK-033",
+    "file_name": "image_033.jpg",
+    "file_path": "raw_images/image_033.jpg",
+    "width_px": 1219,
+    "height_px": 676,
+    "file_size_bytes": 630373,
+    "workload_category": "medium",
+    "estimated_processing_time_ms": 82.4044
+  },
+  {
+    "task_id": "TASK-034",
+    "file_name": "image_034.jpg",
+    "file_path": "raw_images/image_034.jpg",
+    "width_px": 1623,
+    "height_px": 1051,
+    "file_size_bytes": 1297404,
+    "workload_category": "large",
+    "estimated_processing_time_ms": 170.5773
+  },
+  {
+    "task_id": "TASK-035",
+    "file_name": "image_035.jpg",
+    "file_path": "raw_images/image_035.jpg",
+    "width_px": 1483,
+    "height_px": 1042,
+    "file_size_bytes": 1177439,
+    "workload_category": "large",
+    "estimated_processing_time_ms": 154.5286
+  },
+  {
+    "task_id": "TASK-036",
+    "file_name": "image_036.jpg",
+    "file_path": "raw_images/image_036.jpg",
+    "width_px": 1714,
+    "height_px": 825,
+    "file_size_bytes": 1076794,
+    "workload_category": "large",
+    "estimated_processing_time_ms": 141.405
+  },
+  {
+    "task_id": "TASK-037",
+    "file_name": "image_037.jpg",
+    "file_path": "raw_images/image_037.jpg",
+    "width_px": 1104,
+    "height_px": 658,
+    "file_size_bytes": 553617,
+    "workload_category": "medium",
+    "estimated_processing_time_ms": 72.6432
+  },
+  {
+    "task_id": "TASK-038",
+    "file_name": "image_038.jpg",
+    "file_path": "raw_images/image_038.jpg",
+    "width_px": 1635,
+    "height_px": 1024,
+    "file_size_bytes": 1269944,
+    "workload_category": "large",
+    "estimated_processing_time_ms": 167.424
+  },
+  {
+    "task_id": "TASK-039",
+    "file_name": "image_039.jpg",
+    "file_path": "raw_images/image_039.jpg",
+    "width_px": 1474,
+    "height_px": 920,
+    "file_size_bytes": 1031380,
+    "workload_category": "large",
+    "estimated_processing_time_ms": 135.608
+  },
+  {
+    "task_id": "TASK-040",
+    "file_name": "image_040.jpg",
+    "file_path": "raw_images/image_040.jpg",
+    "width_px": 735,
+    "height_px": 577,
+    "file_size_bytes": 323423,
+    "workload_category": "small",
+    "estimated_processing_time_ms": 42.4095
+  },
+  {
+    "task_id": "TASK-041",
+    "file_name": "image_041.jpg",
+    "file_path": "raw_images/image_041.jpg",
+    "width_px": 1909,
+    "height_px": 768,
+    "file_size_bytes": 1111071,
+    "workload_category": "large",
+    "estimated_processing_time_ms": 146.6112
+  },
+  {
+    "task_id": "TASK-042",
+    "file_name": "image_042.jpg",
+    "file_path": "raw_images/image_042.jpg",
+    "width_px": 1033,
+    "height_px": 614,
+    "file_size_bytes": 484059,
+    "workload_category": "medium",
+    "estimated_processing_time_ms": 63.4262
+  },
+  {
+    "task_id": "TASK-043",
+    "file_name": "image_043.jpg",
+    "file_path": "raw_images/image_043.jpg",
+    "width_px": 1146,
+    "height_px": 607,
+    "file_size_bytes": 529465,
+    "workload_category": "medium",
+    "estimated_processing_time_ms": 69.5622
+  },
+  {
+    "task_id": "TASK-044",
+    "file_name": "image_044.jpg",
+    "file_path": "raw_images/image_044.jpg",
+    "width_px": 1446,
+    "height_px": 811,
+    "file_size_bytes": 894067,
+    "workload_category": "large",
+    "estimated_processing_time_ms": 117.2706
+  },
+  {
+    "task_id": "TASK-045",
+    "file_name": "image_045.jpg",
+    "file_path": "raw_images/image_045.jpg",
+    "width_px": 776,
+    "height_px": 578,
+    "file_size_bytes": 343398,
+    "workload_category": "small",
+    "estimated_processing_time_ms": 44.8528
+  },
+  {
+    "task_id": "TASK-046",
+    "file_name": "image_046.jpg",
+    "file_path": "raw_images/image_046.jpg",
+    "width_px": 761,
+    "height_px": 550,
+    "file_size_bytes": 320212,
+    "workload_category": "small",
+    "estimated_processing_time_ms": 41.855
+  },
+  {
+    "task_id": "TASK-047",
+    "file_name": "image_047.jpg",
+    "file_path": "raw_images/image_047.jpg",
+    "width_px": 1240,
+    "height_px": 627,
+    "file_size_bytes": 594676,
+    "workload_category": "medium",
+    "estimated_processing_time_ms": 77.748
+  },
+  {
+    "task_id": "TASK-048",
+    "file_name": "image_048.jpg",
+    "file_path": "raw_images/image_048.jpg",
+    "width_px": 1685,
+    "height_px": 972,
+    "file_size_bytes": 1246508,
+    "workload_category": "large",
+    "estimated_processing_time_ms": 163.782
+  },
+  {
+    "task_id": "TASK-049",
+    "file_name": "image_049.jpg",
+    "file_path": "raw_images/image_049.jpg",
+    "width_px": 1255,
+    "height_px": 615,
+    "file_size_bytes": 588015,
+    "workload_category": "medium",
+    "estimated_processing_time_ms": 77.1825
+  },
+  {
+    "task_id": "TASK-050",
+    "file_name": "image_050.jpg",
+    "file_path": "raw_images/image_050.jpg",
+    "width_px": 656,
+    "height_px": 523,
+    "file_size_bytes": 262155,
+    "workload_category": "small",
+    "estimated_processing_time_ms": 34.3088
+  }
+]
