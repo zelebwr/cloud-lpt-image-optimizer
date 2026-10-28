@@ -12,7 +12,7 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 
 # Install pustaka Python
-RUN pip install --no-cache-dir fastapi uvicorn pillow pydantic requests
+RUN pip install --no-cache-dir fastapi uvicorn pillow pydantic requests python-multipart
 
 # Salin seluruh modul kode yang dibutuhkan worker
 COPY schema.py .
