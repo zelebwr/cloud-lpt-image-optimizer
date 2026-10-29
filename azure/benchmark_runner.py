@@ -50,6 +50,9 @@ REQUEST_TIMEOUT = 120
 # Toleransi dimensi output (±10% dari target)
 DIMENSION_TOLERANCE = 0.10
 
+# True = kirim gambar lewat multipart ke /execute_task_upload (diatur di main())
+USE_UPLOAD = False
+
 
 # ──────────────────────────────────────────────────────────────────────────────
 # FUNGSI HELPER
@@ -97,6 +100,15 @@ def parse_args():
             "Override URL worker secara manual, format: "
             "'vm-worker-1=http://IP:PORT,vm-worker-2=http://IP:PORT,...' "
             "Jika diisi, mengabaikan --mode."
+        )
+    )
+    parser.add_argument(
+        "--transport", type=str, default="auto", choices=["auto", "path", "upload"],
+        help=(
+            "Cara mengirim gambar ke worker: 'upload' (multipart ke /execute_task_upload, "
+            "untuk VM terpisah seperti Azure), 'path' (kirim path file ke /execute_task, "
+            "untuk worker yang berbagi folder dengan runner). "
+            "'auto' = upload jika --mode azure, selain itu path. (default: auto)"
         )
     )
     return parser.parse_args()
@@ -296,24 +308,48 @@ def eksekusi_task_di_vm(
         # ── Catat waktu sebelum request ────────────────────────────────────
         t_start = time.perf_counter()
 
-        resp = requests.post(
-            f"{worker_url}/execute_task",
-            json=payload,
-            timeout=REQUEST_TIMEOUT
-        )
-        resp.raise_for_status()
+        if USE_UPLOAD:
+            # Kirim gambar lewat multipart; hasil resize kembali sebagai bytes JPEG
+            with open(input_file_abs, "rb") as fh:
+                resp = requests.post(
+                    f"{worker_url}/execute_task_upload",
+                    data={
+                        "task_id": task.task_id,
+                        "target_scale": task.target_scale,
+                        "quality": DEFAULT_QUALITY,
+                    },
+                    files={"file": (os.path.basename(input_file_abs), fh, "image/jpeg")},
+                    timeout=REQUEST_TIMEOUT
+                )
+            resp.raise_for_status()
 
-        t_end = time.perf_counter()
-        elapsed_ms = (t_end - t_start) * 1000
+            os.makedirs(os.path.dirname(output_file_abs) or ".", exist_ok=True)
+            with open(output_file_abs, "wb") as out:
+                out.write(resp.content)
 
-        # ── Ambil durasi dari respons worker jika tersedia ─────────────────
-        resp_data = resp.json()
-        actual_ms = float(
-            resp_data.get("processing_duration_ms")
-            or resp_data.get("duration_ms")
-            or resp_data.get("actual_ms")
-            or elapsed_ms
-        )
+            t_end = time.perf_counter()
+            elapsed_ms = (t_end - t_start) * 1000
+            header_ms = resp.headers.get("X-Actual-Duration-Ms")
+            actual_ms = float(header_ms) if header_ms else elapsed_ms
+        else:
+            resp = requests.post(
+                f"{worker_url}/execute_task",
+                json=payload,
+                timeout=REQUEST_TIMEOUT
+            )
+            resp.raise_for_status()
+
+            t_end = time.perf_counter()
+            elapsed_ms = (t_end - t_start) * 1000
+
+            resp_data = resp.json()
+            actual_ms = float(
+                resp_data.get("actual_duration_ms")
+                or resp_data.get("processing_duration_ms")
+                or resp_data.get("duration_ms")
+                or resp_data.get("actual_ms")
+                or elapsed_ms
+            )
 
         # ── Validasi file output ───────────────────────────────────────────
         exp_w = task.width_px * task.target_scale
@@ -537,11 +573,15 @@ def main():
     """Fungsi utama: parse args, baca dataset, jalankan benchmark, simpan hasil."""
     args = parse_args()
 
+    global USE_UPLOAD
+    USE_UPLOAD = (args.transport == "upload") or (args.transport == "auto" and args.mode == "azure")
+
     # ── Resolve URL master dan worker berdasarkan --mode / --workers ───────
     master_url  = resolve_master_url(args)
     worker_urls = resolve_worker_urls(args)
 
     print(f"[INFO] Mode deployment : {args.mode.upper()}")
+    print(f"[INFO] Transport gambar: {'UPLOAD (multipart)' if USE_UPLOAD else 'PATH (shared folder)'}")
     print(f"[INFO] Master URL      : {master_url}")
     print("[INFO] Worker URLs yang digunakan:")
     for vm_id, url in worker_urls.items():
