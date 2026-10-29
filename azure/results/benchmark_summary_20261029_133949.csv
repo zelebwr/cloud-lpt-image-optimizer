@@ -1,0 +1,3 @@
+algorithm,total_tasks,success_count,failed_count,wall_clock_makespan_ms,scheduling_duration_ms
+lpt,50,50,0,18596.55,0.5
+rr,50,50,0,12934.59,0.23

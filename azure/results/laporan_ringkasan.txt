@@ -1,0 +1,12 @@
+Ringkasan Benchmark LPT vs Round Robin (Azure)
+
+Algoritma  Makespan Est (ms)       DI  Util (%)  Throughput (task/s)  Total Cost (USD)  T_sched (ms)  Makespan Aktual (ms)  DI Aktual  Wall-clock (ms)  Gagal
+      LPT         908.414800 0.014243 99.263997            55.040935          0.000031          0.50                569.36   1.012084         18596.55      0
+       RR        1624.184125 0.996066 63.816706            30.784687          0.000032          0.23                358.89   0.206473         12934.59      0
+
+Makespan estimasi LPT lebih rendah 44.07% dari RR
+DI estimasi LPT lebih rendah 98.57% dari RR
+Makespan aktual LPT lebih rendah -58.64% dari RR
+Wall-clock LPT lebih rendah -43.77% dari RR
+Throughput LPT 55.04 vs RR 30.78 task/s
+T_sched LPT 0.500 ms vs RR 0.230 ms
